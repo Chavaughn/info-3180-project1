@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="row">
+    <div class="col-md-12 details-prop">
+        <div class="card detailscard">
+            <div class="left-side">
+                <img class="property-image-details" src="{{ url_for('get_image', filename=property.main_photo_name) }}" alt="{{ property.title }}">
+            </div>
+            <div class="right-side">
+                <h4 class="property-title">{{ property.title }}</h4>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="price-bubble-alt">
+                            <p>${{ property.price }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="type-bubble">
+                            <p>{{ type }}</p>
+                        </div>
+                    </div>
+                </div>
+                <p>{{ property.description }}</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><i class="fas fa-bed">&nbsp;</i>{{ property.rooms }} Bedrooms</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><i class="fas fa-cloud-showers-heavy">&nbsp;</i>{{ property.bathrooms }} Bathrooms</p>
+                    </div>
+                </div>
+                <p><i class="fas fa-map-marker-alt"></i> {{ property.location }}</p>
+                <button class="btn email">Email Realtor</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}

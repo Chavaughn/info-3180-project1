@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="display-5 fw-bold">Add New Property</h1>
+        <div class="content-box-border">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    {{ form.csrf_token }}
+                    <div class="col-md-12">
+                        <br> {{ form.title.label(class="fw-bold") }} {{ form.title(class="form-control",size=40) }}
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        {{ form.description.label(class="fw-bold") }} {{ form.description(class="form-control",rows=5, resize="none") }}
+                        <br>
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.rooms.label(class="fw-bold") }} {{ form.rooms(class="form-control",size=40) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form.bathrooms.label(class="fw-bold") }} {{ form.bathrooms(class="form-control",size=40) }}
+                    </div>
+                    <div class="col-md-6">
+                        <br> {{ form.price.label(class="fw-bold") }} {{ form.price(class="form-control",size=40) }}
+                    </div>
+                    <div class="col-md-6">
+                        <br>{{ form.property_type.label(class="fw-bold") }} {{ form.property_type(class="form-control") }}
+                    </div>
+                    <div class="col-md-12">
+                        <br> {{ form.location.label(class="fw-bold") }} {{ form.location(class="form-control",size=40) }}
+                    </div>
+                    <div class="col-md-12">
+                        <br> {{ form.main_photo.label(class="fw-bold") }} {{ form.main_photo(accept = "image/*") }}
+                    </div>
+                    <div class="col-md-2">
+                        <br> {{ form.submit(class = "btn btn-primary") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block css %}{% endblock %} {% block main %}
+<div class="row">
+    <div class="col-md-12 properties">
+        <h1 class="display-5 fw-bold">Properties</h1>
+        <div class="row property-card">
+            {% for property in properties %}
+            <div class="col-md-4 col-sm-12 property">
+                <div class="card">
+                    <img class="property-image-listvr" src="{{ url_for('get_image', filename=property.main_photo_name) }}" alt="{{ property.title }}">
+                    <div class="inner-card-property">
+                        <h4 class="property-title">{{ property.title }}</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> {{ property.location }}</p>
+                        <div class="price-bubble">
+                            <p>${{ property.price }}</p>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="view-property-btn">
+                        <a class="btn btn-primary view-property-btn" href="{{ url_for('property_detail', property_id=property.id) }}">View Property</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} {% block js %}{% endblock %}
