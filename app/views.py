@@ -29,7 +29,7 @@ def about():
     return render_template('about.html', name="Chavaughn Wilkins")
 
 
-@app.route('/new-property', methods=['GET', 'POST'])
+@app.route('/properties/create', methods=['GET', 'POST'])
 def new_property():
     """Render the new property page."""
     form = AddPropertyForm()
@@ -81,7 +81,7 @@ def properties():
     properties = Property.query.all()
     return render_template('properties.html', properties=properties)
 
-@app.route('/property/<int:property_id>')
+@app.route('/properties/<int:property_id>')
 def property_detail(property_id):
     """Render the property detail page."""
     property = Property.query.get(property_id)
